@@ -5,7 +5,7 @@ export default function Taskbar({...props}) {
   return (
     <div className='window-taskbar'>
         <div className='windows-start-btn'>
-            <img src="src/assets/images/windowsIcon.png" alt=""  />
+            <img src="/assets/images/windowsIcon.png" alt=""  />
             <span>start</span>
         </div>
         <div className="window-taskbar-content">

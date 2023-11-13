@@ -19,7 +19,7 @@ export default function TaskbarActions() {
     <div className="window-taskbar-actions">
         <span>EN</span>
         <div>
-            <img src="src/assets/images/pcIcon.png" alt=""  />
+            <img src="/assets/images/pcIcon.png" alt=""  />
             <span>{currentDate}</span>
         </div>
     </div>

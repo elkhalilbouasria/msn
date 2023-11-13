@@ -17,7 +17,7 @@
 
 .window-main {
   flex-grow: 1;
-  background-image: url("src/assets/images/wallpaper.png");
+  background-image: url("/assets/images/wallpaper.png");
   padding: 2rem;
   display: flex;
   flex-direction: column;
