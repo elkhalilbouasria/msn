@@ -12,7 +12,7 @@ export default function WindowAppBtn({name,img,onDoubleClick}:Props) : JSX.Eleme
     <button onDoubleClick={onDoubleClick} className="window-app-btn">
         <div>
           <img className="window-app-btn-icon" src={img} />
-          <img className="window-app-btn-shortcut-icon" src="src/assets/images/shortcutIcon.png" />
+          <img className="window-app-btn-shortcut-icon" src="/assets/images/shortcutIcon.png" />
         </div>
         <span>{name}</span>
     </button>
