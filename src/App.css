@@ -1,0 +1,222 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.screen {
+  background: #f0f0f0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+** Window styles
+*/
+
+.window-main {
+  flex-grow: 1;
+  background-image: url("src/assets/images/wallpaper.png");
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.window-app-btn,.window-app-btn:hover,.window-app-btn:focus,.window-app-btn:not(:disabled):hover{
+  width: fit-content;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  min-width: auto;
+  min-height: auto;
+  background: none;
+  border: none;
+}
+
+.window-app-btn {
+  display:  flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  user-select: none;
+  gap: 1px;
+  max-width: 38px;
+}
+
+.window-app-btn:focus > *,.window-app-btn:hover > * {
+  background-color: #0b61ff;
+  filter:opacity(0.8)
+}
+
+.window-app-btn > div {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+}
+
+.window-app-btn > div > .window-app-btn-icon {
+  height: 38px;
+  width: 38px;
+}
+
+.window-app-btn > div> .window-app-btn-shortcut-icon {
+   position: absolute;
+   left: 0;
+   height: 14px;
+   width: 14px;
+   bottom: 4px;
+}
+
+.window-app-btn > span {
+  color: #FFF;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0.5px 1.25px 0px #000;
+  font-family: Segoe UI;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+/*
+** Taskbar styles
+*/
+
+.window-taskbar {
+  height: 2.5rem;
+  background: #245DDB;
+  box-shadow: 0px 7.5px 6px 0px #3888E9 inset, 0px -3.75px 5.25px 0px rgba(0, 0, 0, 0.22) inset, 0px 3px 3px 0px rgba(109, 178, 255, 0.70) inset;
+  display:flex;
+}
+
+.windows-start-btn {
+  border-radius: 0rem 2.34375rem 2.34375rem 0rem;
+  border: 1.5px solid rgba(0, 0, 0, 0.50);
+  border-top: 0;
+  border-bottom: 0;
+  background: linear-gradient(180deg, #278D27 0%, #15D715 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 4px;
+  padding-right: 3rem;
+  padding-left: 1rem;
+  padding-bottom: 4px;
+  box-shadow: 2px 2px 8px 0px rgba(51, 51, 51, 0.7) inset, 2px 4.5px 7px 0px rgba(183, 255, 186, 0.75) inset, -3px -1.5px 12.75px 0px #287828 inset, 3.75px 3.75px 7.5px 0px rgba(40, 119, 40, 0.70) inset, -3.75px -1.5px 15px 0px #237023 inset;
+  filter: drop-shadow(1.5px 1.875px 1.5px #2B72E3);
+}
+
+.windows-start-btn:hover {
+  background: linear-gradient(180deg, #2caa2c 0%, #15D715 100%);
+}
+
+.windows-start-btn > span {
+  color: #FFF;
+  text-shadow: 0.75px 1.5px 1.5px rgba(0, 0, 0, 0.50);
+  font-family: Segoe UI;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.windows-start-btn > img {
+  margin-top: 6px;
+}
+
+.window-taskbar-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0.2rem 1rem;
+  gap: 1px;
+  user-select: none;
+}
+
+.window-taskbar-content > button {
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 10rem;
+  padding: 0rem 1rem;
+  border-radius: 0.25rem;
+  border: 0.5px solid rgba(35, 75, 157, 0.50);
+  background: #3980F4;
+  box-shadow: 1.5px 1.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 8px 0px rgba(255, 255, 255, 0.15) inset, -2px -2px 2px 0px rgba(0, 0, 0, 0.10) inset, 2px 0px 2px 0px rgba(0, 0, 0, 0.07);
+}
+
+.window-taskbar-content > button:hover {
+  background-color: #5592f5;
+  box-shadow: 1.5px 1.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 8px 0px rgba(255, 255, 255, 0.15) inset, -2px -2px 2px 0px rgba(0, 0, 0, 0.10) inset, 2px 0px 2px 0px rgba(0, 0, 0, 0.07);
+}
+
+.window-taskbar-content > button:focus,.active-app-btn {
+  outline: none;
+  background: linear-gradient(95deg, #164DBC 47.27%, #1E53BB 84.65%) !important;
+  box-shadow: 1.5px 1.5px 1px 0px #123D94 inset, -1px -1px 0px 0px #0E3CA2 inset !important;
+}
+
+.window-taskbar-content > button > img {
+  height: 1rem;
+  width: 1rem;
+}
+
+.window-taskbar-content > button > span {
+  color: #FFF;
+  white-space: nowrap;
+  font-family: Segoe UI;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.window-taskbar-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.window-taskbar-actions > span {
+  color: #FFF;
+  text-align: right;
+  font-family: Segoe UI;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.window-taskbar-actions > div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2rem;
+  padding-left: 1rem;
+  margin-left: 1rem;
+  background: #0D9BEF;
+  gap: 8px;
+  box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.25) inset, 3.75px 3.75px 3.75px 0px #16ACF0 inset, -1.5px 0px 0.75px 0px rgba(0, 0, 0, 0.50);
+} 
+
+.window-taskbar-actions > div > span {
+  color: #FFF;
+  font-family: Segoe UI;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
