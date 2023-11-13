@@ -1,14 +1,14 @@
 export const AppsData = [
     {
         name:"MSN",
-        img: "src/assets/images/msnIcon.png"
+        img: "/assets/images/msnIcon.png"
     },
     {
         name:"My photos",
-        img: "src/assets/images/folderIcon.png"
+        img: "/assets/images/folderIcon.png"
     },
     {
         name:"Music Playlist",
-        img:"src/assets/images/playlistIcon.png"
+        img:"/assets/images/playlistIcon.png"
     }
 ]
