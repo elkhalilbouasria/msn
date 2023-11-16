@@ -6,6 +6,7 @@ import WindowAppBtn from "./components/ui/window-app-btn";
 import { AppsData } from "./lib/data";
 import { useState } from "react";
 import Popup from "./components/blocks/popup";
+import Msn from "./components/blocks/msn";
 
 type AppType = {
   name:string,
@@ -16,33 +17,37 @@ function App() {
 
   const [currentApps,setCurrentApps] = useState(Array<AppType>);
   const [activeApp,setActiveApp] = useState<AppType>({name:"",img:""})
-  const [isMinimized,setIsMinized] = useState(false)
+  const [openedApps,setOpenedApps] = useState(Array<AppType>);
 
   const handleCurrentApps = (app:AppType)=>{
+    console.log(app)
     if(!currentApps.includes(app)){
         setCurrentApps([...currentApps,app])
     }
-    setIsMinized(false)
+    if(!openedApps.includes(app)){
+      setOpenedApps([...openedApps,app])
+    }
     setActiveApp(app);
   }
 
   const handleActiveApp = (app:AppType)=>{
-    if(app == activeApp){
-      setIsMinized(!isMinimized)
-    }
-    if(app != activeApp){
-       setIsMinized(false)
-    }
-    setActiveApp(app)
+     setActiveApp(app)
+     if(!openedApps.includes(app)){
+      setOpenedApps([...openedApps,app])
+     }
+     else {
+      setOpenedApps(openedApps.filter(a => a !=app))
+     }
   }
 
-  const handleCloseAppWindow = ()=>{
-     setCurrentApps(currentApps.filter(app => app != activeApp))
+  const handleCloseAppWindow = (closedApp:AppType)=>{
+     setCurrentApps(currentApps.filter(app => app != closedApp))
+     setOpenedApps(openedApps.filter(app => app != closedApp))
      setActiveApp({name:"",img:""})
   }
 
-  const handleMinimizeAppWindow = ()=>{
-    setIsMinized(true);
+  const handleMinimizeAppWindow = (minimizedApp:AppType)=>{
+    setOpenedApps(openedApps.filter(app => app !=minimizedApp))
   }
 
   return (
@@ -58,17 +63,17 @@ function App() {
         <Taskbar>
            {
              currentApps?.map((app,index)=>{
-               return <TaskbarBtn onClick={()=>handleActiveApp(app)} className={activeApp.name === app.name && !isMinimized ? "active-app-btn" : "" } name={app.name} img={app.img} key={index} />
+               return <TaskbarBtn onClick={()=>handleActiveApp(app)} className={activeApp.name === app.name && openedApps.includes(app) ? "active-app-btn" : "" } name={app.name} img={app.img} key={index} />
              })
            }
         </Taskbar>
-        <Popup className={activeApp.name !="" && !isMinimized  ? "window-popup" : "hide-popup"} title={activeApp.name} Close={handleCloseAppWindow} Minimize={handleMinimizeAppWindow}>
-           {currentApps?.map((app,index)=>{
-               if(activeApp==app){
-                return <span key={index}>{app.name}</span>
-               }
-           })}
-        </Popup>
+        {
+           openedApps?.map((app,index)=>{
+               return <Popup Close={()=>handleCloseAppWindow(app)} Minimize={()=>handleMinimizeAppWindow(app)} className={openedApps.includes(app) ? "window-popup" : "hide-popup"} title={app.name} key={index}>
+                     {app.name === "MSN" ? <Msn></Msn> : app.name}
+               </Popup>
+           })
+        }
       </div>
     </>
   )

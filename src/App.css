@@ -4,10 +4,18 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
 .screen {
   background: #f0f0f0;
   height: 100vh;
+  width: 100vw;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
 }
 
@@ -161,7 +169,12 @@
   box-shadow: 1.5px 1.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 8px 0px rgba(255, 255, 255, 0.15) inset, -2px -2px 2px 0px rgba(0, 0, 0, 0.10) inset, 2px 0px 2px 0px rgba(0, 0, 0, 0.07);
 }
 
-.window-taskbar-content > button:focus,.active-app-btn {
+.window-taskbar-content > button:focus {
+  outline: none;
+  background: #3980F4;
+}
+
+.active-app-btn {
   outline: none;
   background: linear-gradient(95deg, #164DBC 47.27%, #1E53BB 84.65%) !important;
   box-shadow: 1.5px 1.5px 1px 0px #123D94 inset, -1px -1px 0px 0px #0E3CA2 inset !important;
@@ -234,12 +247,172 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   pointer-events: none;
 }
 
 .window-popup > * {
   pointer-events: all;
 }
+
+.window-popup > .window {
+  position: absolute;
+  width: fit-content;
+}
+
+.title-bar {
+  user-select: none;
+}
+
+.window-popup > .window > .window-body {
+  padding: 0px 3px;
+  margin: 0;
+} 
+
+
+/*
+** Msn Styles
+*/
+
+
+.msn-window {
+  background: linear-gradient(105deg, #D4E3FB -0.92%, #D0DCF6 100%);
+  box-shadow: 2.4px 2.4px 0.6px 0px rgba(113, 111, 100, 0.50) inset;
+}
+
+.chat-container {
+  min-width: 500px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.chat-container > .chat {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 20px;
+}
+
+.chat-container > .chat > .chat-box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+
+.chat-container > .chat > .chat-box > .chat-box-header {
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  border: 1px solid #485467;
+  background: #EEF0FD;
+  padding: 0.6rem 1.25rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 4px;
+}
+
+.chat-container > .chat > .chat-box > .chat-box-header > span:first-child  {
+  color: #485467;
+  font-family: Segoe UI;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.chat-container > .chat > .chat-box > .chat-box-header > span:last-child {
+  color: #313E52;
+  font-family: Segoe UI;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.chat-container > .chat > .chat-box > .chat-box-convo {
+  border-right: 1px solid #485467;
+  border-bottom: 1px solid #485467;
+  border-left: 1px solid #485467;
+  background: #FFF;
+  padding: 0.875rem 1.25rem;
+  flex-grow: 1;
+  border-end-start-radius: 8px;
+  border-end-end-radius: 8px;
+}
+
+.chat-container > .chat > .chat-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-container > .chat > .chat-actions > .chat-actions-btns {
+  display: flex;
+  padding: 0.625rem 1.25rem;
+  gap: 1.25rem;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  border: 1px solid #485467;
+  background: linear-gradient(180deg, #D4E1F4 0%, #F2F5F5 47.4%, #D4E1F4 100%);
+}
+
+.chat-container > .chat > .chat-actions > .chat-actions-input {
+  display: flex;
+  position: relative;
+}
+
+.chat-container > .chat > .chat-actions > .chat-actions-input > input {
+  flex-grow: 1;
+  padding: 20px;
+  border-right: 1px solid #485467;
+  border-left: 1px solid #485467;
+  border-top: none;
+  border-bottom: none;
+  background: #FFF;
+}
+
+.chat-container > .chat > .chat-actions > .chat-actions-input > button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.chat-container > .chat > .chat-actions > .chat-actions-input > button > span {
+  text-decoration: underline;
+}
+
+.chat-container > .cams {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.chat-container > .cams > .cam {
+  padding: 20px 20px 12px 20px;
+  border-radius: 8px;
+  border: 1px solid #485467;
+  background: linear-gradient(131deg, #EBF0FC 0%, #D0DEF1 100%);
+}
+
+.chat-container > .cams > .cam > .cam-img-video{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   align-items: end;
+}
+
+.chat-container > .cams > .cam > .cam-img-video > img {
+  height: 150px;
+  width: 150px;
+  border-radius: 8px;
+  border: 1px solid #485467;
+  background: lightgray 17.232px 8.379px / 82.003% 91.305% no-repeat, linear-gradient(180deg, #FEFEFE 0%, #EEF6FD 100%);
+}
+
+.chat-container > .cams > .cam > .cam-img-video > svg {
+  margin-right: 8px;
+}
+
+
+
